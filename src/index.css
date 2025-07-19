@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* WSK Design System - Dark, Glitchy, Mysterious */
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 90%;
+    
+    /* WSK Dark Theme */
+    --void: 0 0% 0%;
+    --shadow: 0 0% 6.7%;
+    --dark-gray: 0 0% 10%;
+    --medium-gray: 0 0% 16.7%;
+    
+    /* Glitch Colors */
+    --neon-cyan: 180 100% 50%;
+    --neon-magenta: 300 100% 50%;
+    --blood-red: 0 100% 20%;
+    --ghost-white: 0 0% 95%;
+    
+    /* Interactive States */
+    --danger: 0 100% 20%;
+    --warning: 54 100% 50%;
+    --success: 120 100% 25%;
+    
+    /* Glitch Effects */
+    --glitch-1: 180 100% 50%;
+    --glitch-2: 300 100% 50%;
+    --glitch-3: 60 100% 50%;
+
+    --card: 0 0% 6.7%;
+    --card-foreground: 0 0% 90%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 90%;
+
+    --primary: 180 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 16.7%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 300 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 100% 20%;
+    --destructive-foreground: 0 0% 90%;
+
+    --border: 0 0% 16.7%;
+    --input: 0 0% 10%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Courier New', monospace;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="%2300FFFF" stroke-width="2"/><circle cx="10" cy="10" r="2" fill="%2300FFFF"/></svg>'), auto;
+  }
+}
+
+/* WSK Custom Styles */
+@layer components {
+  /* Glitch Text Effect */
+  .glitch {
+    position: relative;
+    color: hsl(var(--ghost-white));
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch::before {
+    animation: glitch-1 0.5s infinite;
+    color: hsl(var(--neon-cyan));
+    z-index: -1;
+  }
+  
+  .glitch::after {
+    animation: glitch-2 0.5s infinite;
+    color: hsl(var(--neon-magenta));
+    z-index: -2;
+  }
+
+  /* Disappearing Button */
+  .vanish-button {
+    transition: all 0.3s ease;
+  }
+  
+  .vanish-button:hover {
+    opacity: 0;
+    transform: scale(0.8) rotate(15deg);
+    pointer-events: none;
+  }
+
+  /* Mysterious Text */
+  .mystery-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+  
+  .mystery-text.appear {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Pulsing Element */
+  .pulse-void {
+    animation: pulse-void 2s infinite;
+  }
+
+  /* Auto-scramble text */
+  .scramble {
+    animation: scramble 3s infinite;
+  }
+
+  /* Eye cursor */
+  .eye-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="6" fill="none" stroke="%23FF00FF" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="%23FF00FF"/><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></svg>'), auto;
+  }
+}
+
+@layer utilities {
+  /* Glitch Animations */
+  @keyframes glitch-1 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+  
+  @keyframes glitch-2 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(2px, 0); }
+    40% { transform: translate(-2px, 2px); }
+    60% { transform: translate(0, -2px); }
+    80% { transform: translate(-2px, 0); }
+  }
+
+  @keyframes pulse-void {
+    0%, 100% { 
+      box-shadow: 0 0 5px hsl(var(--neon-cyan)), 0 0 10px hsl(var(--neon-cyan)), 0 0 15px hsl(var(--neon-cyan));
+    }
+    50% { 
+      box-shadow: 0 0 10px hsl(var(--neon-magenta)), 0 0 20px hsl(var(--neon-magenta)), 0 0 30px hsl(var(--neon-magenta));
+    }
+  }
+
+  @keyframes scramble {
+    0%, 100% { content: attr(data-text); }
+    25% { content: "?????"; }
+    50% { content: "ΞRROR"; }
+    75% { content: "NULL"; }
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  @keyframes slide-chaos {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px) rotate(1deg); }
+    50% { transform: translateX(10px) rotate(-1deg); }
+    75% { transform: translateX(-5px) rotate(0.5deg); }
+    100% { transform: translateX(0); }
+  }
+
+  .animate-flicker {
+    animation: flicker 0.15s infinite linear alternate;
+  }
+
+  .animate-slide-chaos {
+    animation: slide-chaos 4s infinite ease-in-out;
+  }
+
+  .animate-glitch-rgb {
+    animation: glitch-1 0.3s infinite, glitch-2 0.3s infinite reverse;
+  }
+}
