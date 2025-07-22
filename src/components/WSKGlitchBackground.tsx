@@ -66,4 +66,50 @@ export const WSKGlitchBackground = () => {
       </div>
     </div>
   );
+  return (
+  <>
+    {/* فيديو خلفية - تحت كل شيء */}
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="fixed top-0 left-0 w-full h-full object-cover -z-20 opacity-70"
+    >
+      <source src="/assets/void-background.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    {/* خلفية glitch فوق الفيديو */}
+    <div 
+      className="fixed inset-0 w-full h-full -z-10 transition-all duration-75"
+      style={getGlitchStyle()}
+    >
+      {/* باقي كود الـ glitch */}
+      {/* Noise overlay */}
+      <div 
+        className="absolute inset-0 opacity-5 animate-flicker"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+      {/* Scanning lines */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div 
+          className="w-full h-0.5 bg-neon-cyan absolute animate-slide-chaos opacity-20"
+          style={{ top: '20%' }}
+        />
+        <div 
+          className="w-full h-0.5 bg-neon-magenta absolute animate-slide-chaos opacity-20"
+          style={{ top: '60%', animationDelay: '1s' }}
+        />
+        <div 
+          className="w-full h-0.5 bg-glitch-3 absolute animate-slide-chaos opacity-20"
+          style={{ top: '80%', animationDelay: '2s' }}
+        />
+      </div>
+    </div>
+  </>
+);
+
 };
