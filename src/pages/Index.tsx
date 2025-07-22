@@ -11,14 +11,14 @@ const Index = () => {
   const [isWSK, setIsWSK] = useState(false);
 
   const mysteryTexts = [
-    "ما الهدف من وجودك؟",
-    "لماذا أنت هنا؟",
-    "هل تبحث عن معنى؟",
-    "لا يوجد معنى.",
-    "أنت تختار المعنى.",
-    "أم أن المعنى يختارك؟",
+    "What is your purpose?",
+    "Why are you here?",
+    "Are you searching for meaning?",
+    "There is no meaning.",
+    "You choose the meaning.",
+    "Or does the meaning choose you?",
     "WSK = Welcome to Something Known",
-    "أو ربما... لا شيء معروف",
+    "Or maybe... nothing is known",
   ];
 
   useEffect(() => {
@@ -26,7 +26,6 @@ const Index = () => {
       setCurrentSection(prev => (prev + 1) % 5);
     }, 8000);
 
-    // Show final message after 30 seconds
     const finalTimer = setTimeout(() => {
       setShowFinalMessage(true);
       setTimeout(() => {
@@ -46,16 +45,16 @@ const Index = () => {
         <WSKGlitchBackground />
         <div className="text-center space-y-8 animate-pulse">
           <WSKGlitchText 
-            text="أنت الآن WSK" 
+            text="You are now WSK" 
             className="text-6xl text-neon-cyan"
             autoScramble={true}
           />
           <p className="text-ghost-white text-lg opacity-70 animate-flicker">
-            مرحبًا بك في اللاشيء المعروف
+            Welcome to the unknown nothingness
           </p>
           <div className="mt-12">
             <span className="text-xs text-muted-foreground opacity-30">
-              [الآن يمكنك إغلاق المتصفح]
+              [You may now close the browser]
             </span>
           </div>
         </div>
@@ -72,7 +71,7 @@ const Index = () => {
             <span className="text-3xl animate-glitch-rgb">?</span>
           </div>
           <WSKGlitchText 
-            text="أنت الآن WSK." 
+            text="You are now WSK." 
             className="text-4xl text-neon-magenta"
             autoScramble={true}
           />
@@ -95,7 +94,7 @@ const Index = () => {
           Welcome to Something Known
         </p>
         <p className="text-sm text-muted-foreground mt-2 opacity-50">
-          (أو ربما... لا شيء معروف)
+          (Or maybe... nothing is known)
         </p>
       </header>
 
@@ -105,17 +104,17 @@ const Index = () => {
         {/* Section 1: Vanishing Buttons */}
         <section className="text-center space-y-8 min-h-[200px]">
           <h2 className="text-2xl text-neon-magenta animate-pulse">
-            تعليمات غامضة
+            Mysterious Instructions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
             <WSKVanishButton>
-              لا تضغط
+              Do not click
             </WSKVanishButton>
             <WSKVanishButton>
-              اضغط هنا للفراغ
+              Click here for the void
             </WSKVanishButton>
             <WSKVanishButton>
-              زر بلا هدف
+              A pointless button
             </WSKVanishButton>
           </div>
         </section>
@@ -123,7 +122,7 @@ const Index = () => {
         {/* Section 2: Mystery Text */}
         <section className="text-center space-y-8 min-h-[200px]">
           <h2 className="text-2xl text-neon-cyan animate-slide-chaos">
-            أسئلة بلا إجابات
+            Questions with no answers
           </h2>
           <WSKMysteryText 
             texts={mysteryTexts}
@@ -135,7 +134,7 @@ const Index = () => {
         {/* Section 3: Sound of Void */}
         <section className="text-center space-y-8 min-h-[200px]">
           <h2 className="text-2xl text-blood-red animate-flicker">
-            تجربة صوتية
+            Auditory Experience
           </h2>
           <WSKSoundVoid />
         </section>
@@ -150,12 +149,12 @@ const Index = () => {
             }}
           >
             <WSKGlitchText 
-              text={`قسم متغير #${currentSection + 1}`}
+              text={`Changing Section #${currentSection + 1}`}
               className="text-xl"
               autoScramble={true}
             />
             <p className="mt-4 text-muted-foreground">
-              هذا القسم يتغير كل ٨ ثوانٍ بلا سبب
+              This section changes every 8 seconds for no reason
             </p>
           </div>
         </section>
@@ -163,12 +162,12 @@ const Index = () => {
         {/* Section 5: Nonsense Status */}
         <section className="text-center space-y-4">
           <div className="flex justify-center space-x-8 text-sm text-muted-foreground">
-            <span className="animate-pulse">الحالة: غير محددة</span>
-            <span className="animate-flicker">الهدف: لا يوجد</span>
-            <span className="animate-slide-chaos">المعنى: اختياري</span>
+            <span className="animate-pulse">Status: Undefined</span>
+            <span className="animate-flicker">Purpose: None</span>
+            <span className="animate-slide-chaos">Meaning: Optional</span>
           </div>
           <div className="text-xs opacity-30">
-            WSK v∞.∞.∞ - لا حقوق محفوظة للفراغ
+            WSK v∞.∞.∞ - No rights reserved for the void
           </div>
         </section>
 

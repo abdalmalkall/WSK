@@ -38,10 +38,10 @@ export const WSKSoundVoid = () => {
     return (
       <div className="text-center space-y-4">
         <p className="text-muted-foreground text-sm animate-flicker">
-          هل سمعت شيئًا؟
+        Did you hear something?
         </p>
         <p className="text-xs text-muted-foreground opacity-50">
-          (لا يوجد شيء للسماع)
+       (Nothing to hear)
         </p>
       </div>
     );
@@ -58,19 +58,19 @@ export const WSKSoundVoid = () => {
         {isPlaying ? (
           <>
             <VolumeX className="mr-2 h-4 w-4 animate-pulse" />
-            جاري الاستماع للفراغ...
+           Listening to the void...
           </>
         ) : (
           <>
             <Volume2 className="mr-2 h-4 w-4" />
-            استمع لصوت الفراغ
+          Listen to the full audio
           </>
         )}
       </Button>
       
       {isPlaying && (
         <p className="text-xs text-muted-foreground animate-flicker">
-          ● REC • • • سجل: لا شيء
+         ● REC • • • Register: None
         </p>
       )}
     </div>
